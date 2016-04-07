@@ -7,7 +7,7 @@
 #             -p 0.0.0.0:some-other-port-on-host:60000 \
 #             -v /some/local/path:/logs \
 #             -v /some/other/local/path:/input-data \
-#             ssankara/jmeter-server
+#             vdang858/jmeter-server
 #
 # TODO - Parameterize jmeter version in the ENTRYPOINT.
 #        Don't know how at the moment.  Cannot seem to use $VAR.  It is not converted; probably
@@ -20,6 +20,7 @@ FROM vdang858/jmeter-base
 MAINTAINER Vu Dang kdangtester@gmail.com
 
 ADD jmeter.properties /var/lib/apache-jmeter-$JMETER_VERSION/bin/
+ADD keepmerunning.sh /var/lib/apache-jmeter-$JMETER_VERSION/bin/
 
 # Expose access to logs & data files
 VOLUME [ "/logs" ]
